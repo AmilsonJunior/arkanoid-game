@@ -16,5 +16,6 @@
     <ClInclude Include="GameRules.h" />
     <ClInclude Include="GlobalEnvironment.h" />
     <ClInclude Include="Block.h" />
+    <ClInclude Include="GameFactory.h" />
   </ItemGroup>
 </Project>

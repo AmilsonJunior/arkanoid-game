@@ -14,8 +14,6 @@ EntityManager::~EntityManager()
 void EntityManager::Add(IEntity * pEntity)
 {
 	m_pEntities.insert({ pEntity->GetId(), pEntity });
-
-	printf("EntityManager::Add: Entity \"%s\" registered successfully!\n", pEntity->GetId().c_str());
 }
 
 void EntityManager::Remove(const std::string& id)
@@ -36,8 +34,6 @@ void EntityManager::Render(sf::RenderWindow & render, float dt)
 	{
 		if (it->second->IsRemoved())
 		{
-			printf("EntityManager::Remove: Entity \"%s\" removed.\n", it->first.c_str());
-
 			auto reIt = it++;
 			delete reIt->second;
 			m_pEntities.erase(reIt);

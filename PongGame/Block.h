@@ -64,7 +64,7 @@ public:
 			if (lines == 0)
 				next_y_pos = 100;
 			else
-				next_y_pos += 30.f;
+				next_y_pos += 15.f;
 
 			for(int i = 0; i < 50; i++)
 			{

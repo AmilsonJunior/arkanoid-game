@@ -136,6 +136,7 @@
     <ClInclude Include="Ball.h" />
     <ClInclude Include="Block.h" />
     <ClInclude Include="EntityManager.h" />
+    <ClInclude Include="GameFactory.h" />
     <ClInclude Include="GameRules.h" />
     <ClInclude Include="GameWindow.h" />
     <ClInclude Include="GlobalEnvironment.h" />

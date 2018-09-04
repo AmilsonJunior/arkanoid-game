@@ -3,7 +3,7 @@
 #include "Paddle.h"
 #include "Ball.h"
 #include "Block.h"
-
+#include "GameFactory.h"
 #include "EntityManager.h"
 
 GameWindow::GameWindow()
@@ -19,15 +19,7 @@ void GameWindow::InitializeFactory()
 	m_pWindow.create(sf::VideoMode(1024, 768), "Pong Game");
 	m_pWindow.setFramerateLimit(60);
 	
-	Paddle* paddle01 = new Paddle();
-	Ball* ball = new Ball();
-
-	EntityManager* m_pEntityManager = gEnv.GetEntityManager();
-
-	m_pEntityManager->Add(paddle01);
-	m_pEntityManager->Add(ball);
-
-	BlockSpawner::SpawnBlocks();
+	GameFactory::Initialize();
 }
 
 void GameWindow::Run()

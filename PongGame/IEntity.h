@@ -8,7 +8,6 @@ public:
 	IEntity() {}
 	virtual ~IEntity ()
 	{
-		printf("removing..\n");
 	}
 
 	virtual void Render(sf::RenderWindow& render, float dt) {}

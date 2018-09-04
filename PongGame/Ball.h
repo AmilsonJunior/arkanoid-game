@@ -9,7 +9,6 @@
 class Ball : public IEntity
 {
 	sf::CircleShape m_ballShape;
-	std::once_flag spawnFlagOnce;
 	float radius;
 	float velocity;
 	sf::Vector2f m_dir;
@@ -22,23 +21,20 @@ public:
 
 		m_ballShape.setFillColor(sf::Color::Cyan);
 		m_ballShape.setRadius(radius);
-		//m_ballShape.setOrigin(radius / 2, radius / 2);
 
-		m_dir.x = 10.f;
-		m_dir.y = 10.f;
+		auto view = gEnv.GetGameWindow()->GetRenderWindow().getView();
+		m_ballShape.setPosition(view.getSize().x / 2, view.getSize().y / 2);
 
-		velocity = 10.0f;
+		m_dir.x = 8.f;
+		m_dir.y = 8.f;
+
+		velocity = 8.0f;
 	}
 
 	~Ball() = default;
 
 	virtual void Render(sf::RenderWindow& render, float dt) override
 	{
-		std::call_once(spawnFlagOnce, [&]()
-		{
-			m_ballShape.setPosition(render.getView().getSize().x / 2, render.getView().getSize().y / 2);
-		});
-
 		UpdateMovement(render, dt);
 
 		render.draw(m_ballShape);
