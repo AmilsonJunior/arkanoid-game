@@ -44,7 +44,8 @@ protected:
 			{
 				ball->HandleBlockCollision();
 				gEnv.GetGameRules()->OnHitBlock();
-				gEnv.GetEntityManager()->Remove(this->GetId());
+				
+				SetRemoved(true);
 			}
 		}
 	}

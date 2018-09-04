@@ -57,12 +57,5 @@ void EntityManager::HandleInput(sf::Event& event)
 
 IEntity* EntityManager::Get(const std::string& id)
 {
-	auto it = m_pEntities.find(id);
-
-	if (it != m_pEntities.end())
-	{
-		return it->second;
-	}
-
-	return nullptr;
+	return m_pEntities[id];
 }
